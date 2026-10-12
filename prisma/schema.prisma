@@ -1,0 +1,10 @@
+// Models are added by the phases that need them (see specs/roadmap.md).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}

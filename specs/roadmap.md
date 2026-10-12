@@ -7,50 +7,55 @@ High-level implementation order. Each phase is a **thin vertical slice**: small,
 - PostgreSQL via Docker Compose, Prisma connected
 - Vitest and Playwright wired up with one passing smoke test
 
-## Phase 1: Mock users & roles
+## Phase 1: Hello my clinic
+- Install and configure app with Next.js dev server (`next dev`)
+- Single `/` route returning "ManageMyClinic is open for business"
+- Confirm TypeScript types work end-to-end
+
+## Phase 2: Mock users & roles
 - `User` model with role (Patient, Doctor, Receptionist, Admin)
 - Seed one mock user per role
 - Role switcher in the header; `getCurrentUser()` helper
 
-## Phase 2: List doctors
+## Phase 3: List doctors
 - `Doctor` model and seed data
 - Page listing the clinic's doctors (visible to all roles)
 
-## Phase 3: Doctor availability (fixed slots)
+## Phase 4: Doctor availability (fixed slots)
 - Simple availability model (weekly working hours, fixed slot length)
 - Show a doctor's open slots for a selected date
 
-## Phase 4: Book an appointment (Patient)
+## Phase 5: Book an appointment (Patient)
 - `Appointment` model with DB constraint preventing double-booking
 - Patient picks a doctor + open slot and books it
 - Booked slot disappears from availability
 
-## Phase 5: View my appointments (Patient)
+## Phase 6: View my appointments (Patient)
 - Upcoming and past appointments for the current patient
 
-## Phase 6: Cancel an appointment (Patient)
+## Phase 7: Cancel an appointment (Patient)
 - Patient cancels an upcoming appointment; status becomes Cancelled; slot frees up
 
-## Phase 7: Reschedule an appointment (Patient)
+## Phase 8: Reschedule an appointment (Patient)
 - Patient moves an upcoming appointment to another open slot (atomic)
 
-## Phase 8: Doctor's schedule (Doctor)
+## Phase 9: Doctor's schedule (Doctor)
 - Doctor views their own upcoming and past appointments
 
-## Phase 9: Doctor manages availability (Doctor)
+## Phase 10: Doctor manages availability (Doctor)
 - Doctor edits working hours and blocks time off
 
-## Phase 10: Book on behalf of a patient (Receptionist)
+## Phase 11: Book on behalf of a patient (Receptionist)
 - Receptionist selects a patient and books / cancels / reschedules for them
 
-## Phase 11: Clinic-wide schedule (Receptionist & Admin)
+## Phase 12: Clinic-wide schedule (Receptionist & Admin)
 - Day view of all doctors' appointments
 
-## Phase 12: Appointment rules (Admin)
+## Phase 13: Appointment rules (Admin)
 - Configure slot length, booking window, and cancellation cutoff
 - Rules enforced in booking, cancel, and reschedule flows
 
-## Phase 13: Real authentication
+## Phase 14: Real authentication
 - Replace mock users with Auth.js behind `getCurrentUser()`
 
 ## Later / backlog
