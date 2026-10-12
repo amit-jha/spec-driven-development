@@ -8,7 +8,7 @@ First phase of the roadmap (`specs/roadmap.md`). The repo currently holds only s
 - PostgreSQL via Docker Compose for local dev.
 - Prisma installed and connected to the database: datasource + generator only, **no models**.
 - A shared Prisma client helper (`src/lib/db.ts`) safe for Next.js dev hot reload.
-- `prisma/seed.ts` stub wired into `package.json` (`prisma.seed`), doing nothing yet.
+- `prisma/seed.ts` stub wired into `prisma.config.ts` (`migrations.seed`, Prisma 7), doing nothing yet.
 - `GET /api/health` route that runs `SELECT 1` through Prisma and reports DB status.
 - Vitest with one passing unit smoke test.
 - Playwright with one passing e2e smoke test against the home page.
@@ -28,3 +28,4 @@ First phase of the roadmap (`specs/roadmap.md`). The repo currently holds only s
 - **Health route** — `/api/health` returns `200 { status: "ok", db: "up" }` when the DB responds, `503 { status: "error", db: "down" }` otherwise.
 - **Prisma client singleton** — cached on `globalThis` in development to avoid exhausting connections on hot reload.
 - **Times / time zone** — not exercised yet; convention (UTC storage) applies from Phase 3 onward.
+- **Prisma 7.10 (pinned)** — npm's `latest` tag points at an 8.0 release candidate, so the stable 7.10 line is pinned. Prisma 7 uses `prisma.config.ts`, the `@prisma/adapter-pg` driver adapter, and a generated client in `src/generated/prisma` (git-ignored, regenerated on `postinstall`).

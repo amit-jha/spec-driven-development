@@ -43,3 +43,10 @@ Important: You *must* use your AskUserQuestion tool, grouped on these 3, before 
 ## Prompt 4
 
 Add a task group to the plan to have a minimal AgentClinic home page and update the rest of the feature spec to be in sync.
+
+## Prompt 5
+
+Update specs/roadmap.md add a phase after phase 1 to have hello my clinic
+- Install and configure app with `tsx` dev server
+- Single `/` route returning "ManageMyClinic is open for business"
+- Confirm TypeScript types work end-to-end

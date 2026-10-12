@@ -15,7 +15,7 @@
 1. Install `prisma` and `@prisma/client`; run `prisma init`.
 2. Keep `schema.prisma` to datasource (postgresql) + generator only.
 3. Add `src/lib/db.ts` exporting a singleton `PrismaClient`.
-4. Add stub `prisma/seed.ts`, the `prisma.seed` config, and `db:seed` script (via `tsx`).
+4. Add stub `prisma/seed.ts`, the `migrations.seed` entry in `prisma.config.ts`, and `db:seed` script (via `tsx`).
 5. Add `src/app/api/health/route.ts` running `SELECT 1` and returning 200/503 per requirements.
 
 ## 4. Vitest
